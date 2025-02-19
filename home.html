@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from allappsreveiws.com.ng/palmpay/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Sep 2023 21:11:55 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <title>hello</title>
+</head>
+<body>
+    <style>
+             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;900&amp;display=swap');
+        /* Styles remain the same as before */
+   * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #efeded;
+        }
+        .box {
+            width: 95%;
+            height: 150px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid  #ffffff;
+            border-radius: 9px;
+            
+
+        }
+        .money{
+            width: 95%;
+            height: 150px;
+            margin: 0 auto;
+            background:   green;
+            border-radius: 8px;
+            color: white;
+            padding-top: 10px;
+        }
+        .money p, h2 {
+            padding-left: 19px;
+        }
+        .input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-container input,
+        .input-container textarea {
+            border: none;
+            border-bottom: 2px solid #000;
+            background: white;
+            outline: none;
+            padding: 5px 0;
+            font-size: 16px;
+            width: 90%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .input-container input:focus,
+        .input-container textarea:focus {
+            border-bottom-color: green;
+        }
+
+        .input-container label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            transition: 0.2s ease all;
+            font-size: 16px;
+        }
+
+        .input-container input:focus ~ label,
+        .input-container textarea:focus ~ label,
+        .input-container input:valid ~ label,
+        .input-container textarea:valid ~ label {
+            transform: translateY(-29px);
+            font-size: 14px;
+            color: green;
+        }
+
+        label {
+            padding-left: 17px;
+        }
+        .form {
+            width: 95%;
+            height: 320px;
+            margin: 0 auto;
+            /* background-color: rgb(172, 145, 145); */
+            border-radius: 10px;
+            border: 1px solid   green;
+            background: #ffffff;
+        }
+        button {
+            width: 40%;
+        height: 40px;
+        margin: 0 auto;
+        display: block;
+        background:   green;
+        font-size: 22px;
+        color: white;
+
+        }
+
+        .bottom-menu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color:     green;
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    .bottom-menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: 150px;
+}
+
+g { color: red;
+
+}
+.top {
+    width: 100%;
+    height: fit-content;
+    background: none;
+}
+.top img {
+    width: 80px;
+    padding-left: 12px;
+    padding-top: 40px;
+    color: none;
+}
+.top p {
+    position: relative;
+    top: -56px;
+    padding-left: 96px;
+    font-size: 20px;
+    background: none;
+}
+
+
+    body{
+     background-color: #000000;
+   padding: 0px;
+   margin: 0px;
+ }
+
+#gradient
+{
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  margin: 0px;
+}
+    </style>
+    
+    <div id="gradient" />
+ <div class="top">
+        <img src="img/top.png" alt="">
+        <p><b>Hello, Valid User</b></p>
+        <p>Good Day.</p>
+   </div>  <br>
+   <div class="money">
+    <p>Available Balance</p>
+    <h2>₦ <span id="number">5500</span></h2>
+   </div> <br> <br>
+    <div>
+        <center>
+             <h1>Watch video to earn money</h1>
+
+    <iframe width="95%" height="315" style="margin: 0 auto; display: block;" src="video2.mp4"
+     title="YouTube video player" frameborder="0" 
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+     <br><br> <h4>The more videos you watch the more your <g>available balance</g> increase</h4>
+
+        </center>
+        
+    </div>
+    <br><br>
+    <div class="form"> <br>
+        <form id="fundForm">
+            <div class="input-container">
+              <input type="number" id="palmpayNumber" name="palmpayNumber" required>
+              <label for="palmpayNumber">Account Number</label>
+            </div>
+            <div class="input-container">
+              <input type="text" id="palmpayName" name="palmpayName" required placeholder="">
+              <label for="palmpayName">Account Name</label>
+            </div>
+            <div class="input-container">
+              <input type="text" id="palmpayCome" name="palmpayCome" required placeholder="">
+              <label for="palmpayCome">Bank Name</label>
+            </div>
+            <div class="input-container">
+              <input type="number" id="amount" name="amount" required placeholder="">
+              <label for="amount">Amount</label>
+            </div>
+            <br>
+            <button type="submit">Withdraw</button> <br>
+          </form>
+          
+    </div> <br> <br> <br>
+
+      <script>
+                   // JavaScript to handle menu interactions (optional)
+    // You can add functionality such as active menu item highlighting or additional menu actions
+
+    // Example: Add an "active" class to the currently selected menu item
+    const menuItems = document.querySelectorAll('.bottom-menu a');
+
+menuItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    menuItems.forEach((menuItem) => {
+      menuItem.classList.remove('active');
+    });
+
+    item.classList.add('active');
+  });
+});
+
+function startSlider() {
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+
+  function showSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }
+
+  setInterval(showSlide, 3000); // Change slide every 3 seconds
+}
+
+startSlider();
+
+        // Get the element where the number will be displayed
+        const numberElement = document.getElementById('number');
+
+        // Check if the number exists in localStorage
+        let number = localStorage.getItem('number');
+
+        // If the number doesn't exist, set it to 0
+        if (!number) {
+            number = 5500;
+        }
+
+        // Function to update the number
+        function updateNumber() {
+            number = parseInt(number) + 164;
+            numberElement.textContent = formatNumber(number);
+
+            // Store the updated number in localStorage
+            localStorage.setItem('number', number);
+        }
+
+        // Function to format the number with commas and decimal places
+        function formatNumber(number) {
+            return number.toLocaleString('en-US');
+        }
+
+        // Update the number initially
+        updateNumber();
+
+        // Call the updateNumber function every 5 minutes (300,000 milliseconds)
+        setInterval(updateNumber, 2000);
+
+        document.getElementById('fundForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const palmpayNumber = document.getElementById('palmpayNumber').value;
+    const palmpayName = document.getElementById('palmpayName').value;
+    const palmpayCome = document.getElementById('palmpayCome').value;
+    const amount = document.getElementById('amount').value;
+
+    // Store form data in localStorage
+    localStorage.setItem('palmpayNumber', palmpayNumber);
+    localStorage.setItem('palmpayName', palmpayName);
+    localStorage.setItem('palmpayCome', palmpayCome);
+    localStorage.setItem('amount', amount);
+
+    // Navigate to the next page
+    window.location.href = 'next-page.html';
+  });
+      </script>
+
+
+<!-- Start of LiveChat (www.livechat.com) code -->
+<script>
+  window.__lc = window.__lc || {};
+  window.__lc.license = 15808029;
+  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="../../cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/15808029/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 15808029;
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="../../cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<script>
+    
+var colors = new Array(
+  [62,35,255],
+  [60,255,60],
+  [255,35,98],
+  [45,175,230],
+  [255,0,255],
+  [255,128,0]);
+
+var step = 0;
+//color table indices for: 
+// current color left
+// next color left
+// current color right
+// next color right
+var colorIndices = [0,1,2,3];
+
+//transition speed
+var gradientSpeed = 0.002;
+
+function updateGradient()
+{
+  
+  if ( $===undefined ) return;
+  
+var c0_0 = colors[colorIndices[0]];
+var c0_1 = colors[colorIndices[1]];
+var c1_0 = colors[colorIndices[2]];
+var c1_1 = colors[colorIndices[3]];
+
+var istep = 1 - step;
+var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+var color1 = "rgb("+r1+","+g1+","+b1+")";
+
+var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+var color2 = "rgb("+r2+","+g2+","+b2+")";
+
+ $('#gradient').css({
+   background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+    background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+  
+  step += gradientSpeed;
+  if ( step >= 1 )
+  {
+    step %= 1;
+    colorIndices[0] = colorIndices[1];
+    colorIndices[2] = colorIndices[3];
+    
+    //pick two new target color indices
+    //do not pick the same as the current one
+    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+    
+  }
+}
+
+setInterval(updateGradient,10);
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/15808029/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+
+    </body>
+
+<!-- /Chatra {/literal} -->
+    
+<!-- Mirrored from allappsreveiws.com.ng/palmpay/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Sep 2023 21:11:58 GMT -->
+<footer><center><!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Button Hover</title>
+  <link rel="stylesheet" href="./style.css">
+<style>
+  
+  @import url("https://fonts.googleapis.com/css?family=Mukta:700");
+* {
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Mukta", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-height: 100vh;
+  background: #f3f8fa;
+}
+
+button.learn-more {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+button.learn-more {
+  width: 12rem;
+  height: auto;
+}
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #282936;
+  border-radius: 1.625rem;
+}
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+}
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #282936;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+button:hover .circle {
+  width: 100%;
+}
+button:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+}
+button:hover .button-text {
+  color: #fff;
+}
+
+
+
+  #container {
+    grid-area: main;
+    align-self: center;
+    justify-self: center;
+  }
+}
+</style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="container">
+    <a href="BTCwithdraw.html">
+  <button class="learn-more">
+    <span class="circle" aria-hidden="true">
+      <span class="icon arrow"></span>
+    </span>
+    <span class="button-text">Crypto</span>
+  </button>
+</div>
+<!-- partial -->
+  
+</body>
+</html>
+</center></footer><br>
+</html>

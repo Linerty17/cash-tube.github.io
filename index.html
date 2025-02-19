@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from allappsreveiws.com.ng/palmpay/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Sep 2023 21:11:48 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Tube</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;900&amp;display=swap');
+        /* Styles remain the same as before */
+   * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .bottom-menu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color:   #5a00b5;
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    .bottom-menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+        .top {
+            width: 100%;
+            height: 130px;
+            background: #ffffff;
+            margin: 0 auto;
+        }
+
+        .top img {
+            width: 100px;
+            height: 100px;  
+            border-radius: 50%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .well {
+            width: 100%;
+            height: 100px;
+            background: #ffffff;
+            margin: 0 auto; 
+        }
+
+        .well h1, .well p {
+            text-align: center;
+        }
+         P {
+            text-align: center;
+        }
+
+        .code {
+            width: 100%;
+            height: 100px;
+            background: #ffffff;
+            margin: 0 auto; 
+        }
+
+        .code input {
+            width: 78%;
+            height: 46px;
+            margin: 0 auto; 
+            display: block;
+            border: 1px solid rgba(135, 14, 156, 0.741);
+            border-radius: 24px;
+            text-align: center;
+        }
+
+        .inpu {
+            width: 90%;
+            height: auto;
+            background: #ffffff;
+            margin: 0 auto; 
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        @media (max-width: 380px) {
+            
+        }
+        .key {
+            width: 100px;
+            height: 50px;
+            margin: 5px;
+            background: #ffffff;  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .keys {
+            width: 100px;
+            height: 50px;
+            margin: 5px;
+            background: #ffffff;  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid #ccc;
+            cursor: pointer;  
+        }
+        .notice {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
+            background: #dedbdb;
+            border-radius: 7px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: none;
+        }
+        .notice h2 {
+            text-align: center;
+            font-size: 20px;
+            padding-top: 20px;
+            color: rgb(233, 23, 23);
+        }
+        .notice p {
+            padding: 10px 0;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .notice button {
+            width: 100%;
+            height: 40px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            background: rgb(233, 23, 23);
+            color: white;
+        }
+        .notice a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .keys1 {
+            display: flex;
+        }
+        a { color: red;
+            text-decoration: none;
+        }
+
+        g { color: green;
+
+        }
+
+        t{
+            color: pink;
+        }
+        .notification-popup {
+        width: 90%;
+        height: 60px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 20px;
+       /* transform: translateX(-50%); */
+        background-color: #fbc5c5 ;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        color: white;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, top 0.5s ease-in-out;
+        z-index: 1;
+      
+    }
+
+    .notification-content {
+      color: #333;
+    }
+
+    #notification-container {
+      position: fixed;
+      top: 0;
+      height: 60px; /* Adjust the height as needed */
+    }
+    
+
+    .notification-show {
+      opacity: 1;
+      visibility: visible;
+      top: 10px;
+    }
+
+    .notification-slide {
+      animation: slide-up 0.5s ease-in-out;
+    }
+
+    @keyframes slide-up {
+      0% {
+        top: -100px;
+      }
+      100% {
+        top: 10px;
+      }
+    }
+
+        @media (max-width: 768px) {
+            .key {
+                width: 90px;
+                height: 70px;
+                font-size: 20px;
+                line-height: 30px;
+            }
+
+            .keys {
+                width: 90px;
+                height: 70px;
+                font-size: 20px;
+                line-height: 30px;
+            }
+        }
+        .popup-container {
+            position: fixed;
+            z-index: 9999;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            background-color: #f9f4f4;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        .popup-container h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .popup-container p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: fixed;
+            z-index: 9998;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .popup-container {
+                max-width: 95%;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Close hamburger menu after click event</title>
+  <link rel="stylesheet" href="./style.css">
+<style>
+  
+  @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #444444;
+}
+a {
+  color: #ff7013;
+  text-decoration: none;
+}
+.hamburger-menu-button {
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  display: block;
+  position: relative;
+  margin-top: 35px;
+  z-index: 100;
+  background: #2980b9;
+  border: 5px solid white;
+  box-sizing: content-box;
+  border-radius: 50%;
+  text-indent: 100%;
+  color: transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  outline: 0;
+}
+.hamburger-menu-button-open {
+  top: 50%;
+  margin-top: -1px;
+  left: 50%;
+  margin-left: -12px;
+}
+.hamburger-menu-button-open, 
+.hamburger-menu-button-open::before, 
+.hamburger-menu-button-open::after {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 4px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.hamburger-menu-button-open::before, 
+.hamburger-menu-button-open::after {
+  left: 0;
+  content: "";
+}
+.hamburger-menu-button-open::before {
+  top: 6px;
+}
+.hamburger-menu-button-open::after {
+  bottom: 6px;
+}
+.hamburger-menu-button-close {
+  background: transparent;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.hamburger-menu-button-close::before {
+  -webkit-transform: translateY(-6px) rotate(45deg);
+          transform: translateY(-6px) rotate(45deg);
+}
+.hamburger-menu-button-close::after {
+  -webkit-transform: translateY(6px) rotate(-45deg);
+          transform: translateY(6px) rotate(-45deg);
+}
+.ham-menu {
+  position: absolute;
+  top: 42px;
+  left: 48px;
+  margin: auto;
+  max-width: 570px;
+  overflow: hidden;
+}
+.ham-menu ul {
+  -webkit-transform: translateX(-110%);
+          transform: translateX(-110%);
+  background-color: #3896d3;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.ham-menu.on ul {
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+.ham-menu ul {
+  font-size: 0;
+}
+.ham-menu ul li {
+  display: inline-block;
+}
+.ham-menu ul li:first-child .ham-menu ul li a {
+  padding-left: 30px;
+}
+.ham-menu ul li a {
+  padding: 15px;
+  display: block;
+  background-color: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  font-size: 13px;
+}
+.ham-menu ul li.active a, .ham-menu ul li a:hover {
+  background-color: #2980b9;
+  color: #fff !important;
+}
+
+f{ color: red;
+
+}
+
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.buttons {
+    margin: 10%;
+    text-align: center;
+}
+
+.btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+.btn-hover.color-2 {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}  15px 0 rgba(116, 79, 168, 0.75);
+}
+.btn-hover.color-4 {
+    background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+    box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+}
+.btn-hover.color-5 {
+    background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+.btn-hover.color-6 {
+    background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
+    box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+}
+.btn-hover.color-7 {
+    background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+.btn-hover.color-8 {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+.btn-hover.color-9 {
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+.btn-hover.color-10 {
+        background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+.btn-hover.color-11 {
+       background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+
+
+}
+</style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<button id="hamburger-menu" data-toggle="ham-navigation" class="hamburger-menu-button"><span class="hamburger-menu-button-open">Menu</span></button>
+<nav id="ham-navigation" class="ham-menu">
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li class="active"><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script><script  src="./script.js"></script>
+<script>
+  
+  var button = document.getElementById('hamburger-menu'),
+    span = button.getElementsByTagName('span')[0];
+
+button.onclick =  function() {
+  span.classList.toggle('hamburger-menu-button-close');
+};
+
+$('#hamburger-menu').on('click', toggleOnClass);
+
+function toggleOnClass(event) {
+  var toggleElementId = '#' + $(this).data('toggle'),
+  element = $(toggleElementId);
+
+  element.toggleClass('on');
+
+}
+
+// close hamburger menu after click a
+$( '.menu li a' ).on("click", function(){
+  $('#hamburger-menu').click();
+});
+</script>
+</body>
+</html>
+
+    <div id="notification-container">
+        <div id="notification-popup" class="notification-popup">
+          <div id="notification-content" class="notification-content">
+            <h3 id="notification-title"></h3>
+            <p id="notification-message"></p>
+          </div>
+        </div>
+      </div>
+    <div class="top">
+        <br> 
+        <img src="img/palmpay.webp" alt="">
+    </div> 
+    
+    <div class="well"> <br>
+        <h1>Welcome To</h1>
+        <p><t>Cash Tube</t></p>
+    </div> 
+
+    <p>Enter (5) digit code</p>
+    <div class="code"> <br>
+        <input type="password" id="passcode" readonly style="font-size: 40px;">
+    </div>
+    <div class="inpu"><br>
+        <div class="keys1"> 
+            <div class="key">1</div>
+            <div class="key">2</div>
+            <div class="key">3</div> 
+        </div>
+        <div class="keys1"> 
+            <div class="key">4</div>
+            <div class="key">5</div>
+            <div class="key">6</div> 
+        </div>
+        <div class="keys1"> 
+            <div class="key">7</div>
+            <div class="key">8</div>
+            <div class="key">9</div> 
+        </div>
+        <div class="keys1"> 
+            <div class="keys"><a href="buy.html"><f>Sign Up</f></a></div>
+            <div class="key" id="clear">Clear</div>
+            <div class="key" id="enter"><g>Login</g></div>
+        </div>
+    </div>
+<br> <br>
+
+      <div class="notice" id="notice">
+        <span class="close-btn" onclick="closeNotice()">&times;</span>
+        <h2>Welcome to Cash Earn</h2>
+        <p>If you have been looking for where to earn money by just watching ads video's.</p>
+        <p>Then you are at the right place, just get your ( 5 ) digit login code and you are good too go.</p>
+        
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <!--<div class="popup-container" id="popup-container">-->
+    <!--    <span class="popup-close" onclick="hidePopup()">&times;</span>-->
+    <!--    <h2>New Version Available!</h2>-->
+    <!--    <p>Download the new version and install it. do it now before your app stop working.. ignore if already done</p>-->
+    <!--    <a style="color: green;" href="download.html" class="download-button">Download Now</a>-->
+    <!--</div> -->
+    <script>
+        // Define the correct passcode
+        var correctPasscode = "62158";
+
+        // Get the input field
+        var passcodeInput = document.getElementById("passcode");
+
+        // Add click event listeners to the numeric keys
+        var keys = document.querySelectorAll(".key");
+        keys.forEach(function(key) {
+            key.addEventListener("click", function() {
+                var value = key.innerHTML;
+                if (passcodeInput.value.length < 5) {
+                    passcodeInput.value += value;
+                }
+            });
+        });
+
+        // Add click event listener to the Clear button
+        var clearButton = document.getElementById("clear");
+        clearButton.addEventListener("click", function() {
+            passcodeInput.value = "";
+        });
+
+        // Add click event listener to the Enter button
+        var enterButton = document.getElementById("enter");
+        enterButton.addEventListener("click", function() {
+            validatePasscode();
+        });
+
+        // Add input event listener to the passcode input
+        passcodeInput.addEventListener("input", function(event) {
+            var enteredPasscode = passcodeInput.value;
+            if (enteredPasscode.length === 5) {
+                validatePasscode();
+            }
+        });
+
+        // Function to validate the passcode
+        function validatePasscode() {
+            var enteredPasscode = passcodeInput.value;
+            if (enteredPasscode === correctPasscode) {
+                // Correct passcode, show success alert and redirect
+                Swal.fire(
+                'Good job!',
+                'Login succesful',
+                'success'
+                )
+             
+                setTimeout(function() {
+                    window.location.href = "home.html";
+                }, 3000);
+            } else {
+                // Incorrect passcode, show failure alert and clear the input
+                Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'invalid Passcode!',
+                footer: '<a href="buy.html">Buy Passcode?</a>'
+                })
+                passcodeInput.value = "";
+            }
+        }
+    </script>
+
+<script>
+    document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+  });
+
+      // Function to check if the notice has already been shown
+      function isNoticeShown() {
+            // Check if the 'noticeShown' key exists in local storage
+            return localStorage.getItem('noticeShown');
+        }
+
+        // Function to set the notice as shown in local storage
+        function setNoticeShown() {
+            // Set the 'noticeShown' key in local storage
+            localStorage.setItem('noticeShown', true);
+        }
+
+        // Function to show the welcome notice as a pop-up after a delay
+        function showNotice() {
+            if (!isNoticeShown()) {
+                var notice = document.getElementById('notice');
+                notice.style.display = 'none'; // Initially hide the notice
+
+                setTimeout(function() {
+                    notice.style.display = 'block'; // Show the notice after 3 seconds
+                    setNoticeShown();
+                }, 1000);
+            }
+        }
+
+        // Function to close the notice
+        function closeNotice() {
+            var notice = document.getElementById('notice');
+            notice.style.display = 'none';
+            localStorage.setItem('noticeShown', true); // Set 'noticeShown' to true to prevent future display
+        }
+
+        // Call the showNotice function after the window has loaded
+        window.addEventListener('load', showNotice);
+
+        function saveLoginStatus() {
+      localStorage.setItem('loggedIn', 'true');
+    }
+    var notificationQueue = [];
+    var isNotificationShowing = false;
+    var delay = 10000; // Gap between notifications: 7 seconds
+    var notificationCount = 100; // Total number of notifications
+    var messages = [
+      "@John   withdraw ₦150,000. 19min ago",
+      "@Jame   withdraw ₦50,000. 20min ago",
+      "@Gloria   withdraw ₦200,000. 53min ago",
+      "@Emeka   withdraw ₦10,000. 5hr ago",
+      "@David   withdraw ₦90,000. 1hr ago",
+      "@Musa   withdraw ₦230,000. 23min ago",
+
+      "@Abdul   withdraw ₦82,000. 7hr ago",
+      "@Chioma   withdraw ₦210,000. 35min ago",
+      "@Micheal   withdraw ₦500,000. 11hr ago",
+      "@Jessica   withdraw ₦50,000. 32min ago",
+      "@Peace   withdraw ₦170,000. 20min ago",
+      "@Elija   withdraw ₦370,000. 2min ago",
+
+      "@Gani   withdraw ₦100,000. 49min ago",
+      "@Genesis   withdraw ₦280,000. 9hr ago",
+      "@Chininso   withdraw ₦390,000. 2hr ago",
+      "@Abigail   withdraw ₦180,000. 40in ago",
+      "@Ruth   withdraw ₦174,000. 1min ago",
+      "@Peter   withdraw ₦40,000. 19min ago",
+
+      "@Deborah   withdraw ₦140,000. 32min ago",
+      "@Jemimah   withdraw ₦500,000. 45min ago",
+      "@Promise   withdraw ₦500,000. 20min ago",
+      "@abdulahi   withdraw ₦540,000. 20hr ago",
+      "@abubakar   withdraw ₦740,000. 21hr ago",
+      "@Chinrdu  withdraw ₦72,000. 19min ago",
+
+      "@Jabari   withdraw ₦140,000. 43min ago",
+      "@Nathan   withdraw ₦200,000. 45min ago",
+      "@Isaac   withdraw ₦240,000. 21min ago",
+      "@William   withdraw ₦150,000. 43min ago",
+      "@Elijah   withdraw ₦250,000. 49min ago",
+      "@Joshua   withdraw ₦530,000. 5hr ago",
+
+      "@Emeka   withdraw ₦510,000. 19min ago",
+      "@Ifeanyi   withdraw ₦280,000. 34min ago",
+      "@Abdul   withdraw ₦239,000. 21min ago",
+      "@Ade   withdraw ₦234,000. 33min ago",
+      "@Babatunde   withdraw ₦50,000. 53min ago",
+
+      "@Michael   withdraw ₦200,000. 68min ago",
+      "@Thomas   withdraw ₦129,000. 19min ago",
+      "@Amelia   withdraw ₦130,000. 17min ago",
+      "@Chloe   withdraw ₦210,000. 36min ago",
+      "@Emily   withdraw ₦380,000. 50min ago",
+      "@Hannah   withdraw ₦500,000. 10hr ago",
+
+      "@james   withdraw ₦250,000. 4min ago",
+      "@Emeka   withdraw ₦600,000. 12min ago",
+      "@Ifeanyi   withdraw ₦240,000. 3min ago",
+      "@Abdul   withdraw ₦450,000. 15min ago",
+      "@Ade   withdraw ₦520,000. 4hr ago",
+      "@Babatunde   withdraw ₦20,000. 3hr ago",
+
+      "@Ethan   withdraw ₦5,000. 19min ago",
+      "@Sophia   withdraw ₦10,000. 32min ago",
+      "@Alexander   withdraw ₦350,000. 10min ago",
+      "@William   withdraw ₦30,000. 9min ago",
+      "@Johnson   withdraw ₦130,000. 40min ago",
+      "@Gabriel   withdraw ₦40,000. 1hr ago"
+
+
+      // Add more messages as desired
+    ];
+
+    function showNotification(title, message) {
+      var notificationContainer = document.getElementById("notification-container");
+      var notificationPopup = document.getElementById("notification-popup");
+      var titleElement = document.getElementById("notification-title");
+      var messageElement = document.getElementById("notification-message");
+
+      titleElement.textContent = title;
+      messageElement.textContent = message;
+
+      notificationQueue.push({ title: title, message: message });
+
+      if (!isNotificationShowing) {
+        showNextNotification();
+      }
+
+      function showNextNotification() {
+        var nextNotification = notificationQueue.shift();
+        var title = nextNotification.title;
+        var message = nextNotification.message;
+
+        notificationPopup.classList.remove("notification-slide");
+
+        setTimeout(function () {
+          notificationPopup.classList.add("notification-slide");
+          notificationPopup.classList.add("notification-show");
+        }, 100);
+
+        var hideTimeout = setTimeout(function () {
+          notificationPopup.classList.remove("notification-show");
+          notificationPopup.classList.remove("notification-slide");
+          isNotificationShowing = false;
+          if (notificationQueue.length > 0) {
+            setTimeout(function () {
+              showNextNotification();
+            }, delay);
+          }
+        }, 3000); // Hide the notification after 2 seconds
+
+        isNotificationShowing = true;
+      }
+    }
+
+    // Generate notifications
+    for (var i = 0; i < notificationCount; i++) {
+      var notificationDelay = (i + 1) * delay; // Adjust the delay for each notification
+      var randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      setTimeout(function (message) {
+        showNotification("", message);
+      }, notificationDelay, randomMessage);
+    }
+     // Function to show the pop-up
+     function showPopup() {
+            document.getElementById('popup-container').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        // Function to hide the pop-up
+        function hidePopup() {
+            document.getElementById('popup-container').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Function to show the pop-up after a delay
+        function showDownloadPopup() {
+            setTimeout(function () {
+                showPopup();
+            }, 3000); // Show the pop-up after 3 seconds (adjust as needed)
+        }
+
+        // Call the showDownloadPopup function after the window has loaded
+        window.addEventListener('load', showDownloadPopup);
+</script>
+
+
+<!-- Start of LiveChat (www.livechat.com) code -->
+<!-- Start of LiveChat (www.livechat.com) code -->
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 15808029;
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="../../cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/15808029/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
+
+</body>
+
+<!-- Chatra {literal} -->
+
+</script>
+<footer><center>
+    <a href="crypto.html">
+    <button class="btn-hover color-1">SignUp with Crypto</button>
+    <a href="#">
+    <button class="btn-hover color-2">Other Method</button></center></footer><br>
+</html>

